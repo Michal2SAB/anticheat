@@ -18,7 +18,6 @@ echo "Connected successfully";
 date_default_timezone_set('Europe/Warsaw');
 $name=$_POST['user'];
 $date = date('Y-m-d G:i:s', time());
-$ip = $_SERVER['REMOTE_ADDR'];
 $tmpName = "images/".$name.".png";
 // Read the file
 $fp = fopen($tmpName, 'r');
@@ -28,7 +27,7 @@ fclose($fp);
 
 
 $query = "INSERT INTO screens ";
-$query .= "(screen,username,date,ip) VALUES ('$data','$name','$date','$ip')";
+$query .= "(screen,username,date,ip) VALUES ('$data','$name','$date')";
 $results = mysqli_query($con, $query);
 
 // Close our MySQL Link
