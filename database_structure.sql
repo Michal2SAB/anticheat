@@ -9,7 +9,7 @@ CREATE TABLE `scores` (
   `deaths` text COLLATE utf8_unicode_ci NOT NULL,
   `map` text COLLATE utf8_unicode_ci NOT NULL,
   `date` text COLLATE utf8_unicode_ci NOT NULL,
-  `ip` text COLLATE utf8_unicode_ci NOT NULL
+  `version` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `screens` (
