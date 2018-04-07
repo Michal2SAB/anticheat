@@ -38,7 +38,6 @@ $deaths = $_POST['DopPZe4'];
 $mapnum = $_POST['AqWZ3n0'];
 $hac_version = $_POST['TqGedOz'];
 $date = date('Y-m-d G:i:s', time());
-$ip = $_SERVER['REMOTE_ADDR'];
 
 if ($mapnum === '0') {
     $mapnum = 'XGen Hq';
@@ -105,8 +104,8 @@ if ($mapnum === '0') {
 } else {
     $mapnum = 'Custom Map';
 } 
-$sql = "INSERT INTO scores (username, kills, deaths, map, date, ip, version)
-VALUES ('$name', '$kills', '$deaths', '$mapnum', '$date', '$ip', '$hac_version')";
+$sql = "INSERT INTO scores (username, kills, deaths, map, date, version)
+VALUES ('$name', '$kills', '$deaths', '$mapnum', '$date', '$hac_version')";
 
 if ($conn->query($sql) === TRUE) {
     echo "";
