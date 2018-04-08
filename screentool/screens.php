@@ -4,7 +4,7 @@ if(isset($_SERVER['HTTPS'])) {
 $servername = "DATABASE_SERVER";
 $username = "DATABASE_USERNAME";
 $password = "DATABASE_PASSWORD";
-$dbname = "hydraant_anticheat";
+$dbname = "DATABASE_NAME";
 
 
 $con = new mysqli($servername, $username, $password, $dbname);
