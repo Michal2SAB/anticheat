@@ -27,7 +27,7 @@ fclose($fp);
 
 
 $query = "INSERT INTO screens ";
-$query .= "(screen,username,date,ip) VALUES ('$data','$name','$date')";
+$query .= "(screen,username,date) VALUES ('$data','$name','$date')";
 $results = mysqli_query($con, $query);
 
 // Close our MySQL Link
