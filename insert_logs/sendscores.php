@@ -23,6 +23,19 @@ $servername = "DATABASE_SERVER";
 $username = "DATABASE_USERNAME";
 $password = "DATABASE_PASSWORD";
 $dbname = "DATABASE_NAME";
+    
+$mapsArray = Array(
+'0' => 'XGen Hq', '1' => 'Sunnyvale Trailer Park', '2' => 'Toxic Spillway', '3' => 'Workplace Anxiety', '4' => 'Storage Yard', '5' => 'Green Labirynth',
+'6' => 'Floor Thirteen', '7' => 'The Pit', '8' => 'Industrial Drainage', '9' => 'Globalmegacorp LTD', 'A' => 'Concrete Jungle', 'B' => 'Nuclear Underground', 
+'C' => 'Unstable Terrace', 'D' => 'Office Space', 'E' => 'The Foundation', 'F' => 'Brawlers Burrow', 'G' => 'Trench Run', 'H' => 'Corporate Wasteland', 
+'I' => 'Sewage Treatment', 'J' => 'Storm Drain', 'K' => '{B} Stick Federation HQ', 'L' => '{B} Transgalactic Com Station', 'M' => '{B} Space Elevator Control', 
+'N' => '{B} Automated Discovery Pod', 'O' => '{B} The SF Vengeance', 'P' => '{B} Gemini Control Station', 'Q' => '{B} Outpost', 'R' => '{B} Space Mountain', 'S' => '{B} Barge', 
+'T' => '{B} Cliffside', 'U' => '{B} Orbit', 'a' => '{F} Abandoned City (by Sk1)', 'b' => '{F} Anarchy Streets (by Bloodsyn)', 'c' => '{F} Cruelity (by Jzuo)', 'd' => '{F} Desert Laboratory (by Crocodile)',
+'e' => '{F} Exploration (by Difficult)', 'f' => '{F} Facility (by Shadowcasterx4ffc', 'g' => '{F} Failcorp (by Enclave)', 'h' => '{F} Fortmoon (by Hanktankerous)', 'i' => '{F} Island Hopping (by Infal)',
+'j' => '{F} Lost Facility (by Volt)', 'k' => '{F} Lowzone (by Springbranch, Stickslayer138)', 'l' => '{F} Marked Territory (by Coldhot)', 'm' => '{F} My pet glock (by Joe7777777)', 'n' => '{F} Space Excavations (by 718)', 
+'o' => '{F} Venice Streets (by Jaguar)', 'p' => '{F} Office Pod (by Vegeta,rock)', 'q' => '{F} Space Bridge (by Bullet.girl.)', 'r' => '{F} Elite Base (by Jzuo)', 's' => '{F} D Day (by Shot..to..kill...)', 't' => '{F} Cliffs (by Masterchuf)',
+'u' => '{F} Last Map (by ,.Smokez.,)', 'v' => '{F} Ship dock (by Bridgeofstraw)', 'w' => '{F} Radiation (by Jzuo)', 'x' => '{F} Shelter (by Jzuo)', 'y' => '{F} Sewer Tunnel (by Ghecko)', 'z' => '{F} Trench Space (by Jzuo, Dr.wolfe)'
+);
 
 // Create connection
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,71 +52,12 @@ $mapnum = $_POST['AqWZ3n0'];
 $hac_version = $_POST['TqGedOz'];
 $date = date('Y-m-d G:i:s', time());
 
-if ($mapnum === '0') {
-    $mapnum = 'XGen Hq';
-} else if ($mapnum === '1') {
-    $mapnum = 'Sunnyvale Trailer Park';
-} else if ($mapnum === '2') {
-    $mapnum = 'Toxic Spillway';
-} else if ($mapnum === '3') {
-    $mapnum = 'Workplace Anxiety';
-} else if ($mapnum === '4') {
-    $mapnum = 'Storage Yard';
-} else if ($mapnum === '5') {
-    $mapnum = 'Green Labirynth';
-} else if ($mapnum === '6') {
-    $mapnum = 'Floor Thirteen';
-} else if ($mapnum === '7') {
-    $mapnum = 'The Pit';
-} else if ($mapnum === '8') {
-    $mapnum = 'Industrial Drainage';
-} else if ($mapnum === '9') {
-    $mapnum = 'Globalmegacorp LTD';
-} else if ($mapnum === '10') {
-    $mapnum = 'Concrete Jungle';
-} else if ($mapnum === '11') {
-    $mapnum = 'Nuclear Underground';
-} else if ($mapnum === '12') {
-    $mapnum = 'Unstable Terrace';
-} else if ($mapnum === '13') {
-    $mapnum = 'Office Space';
-} else if ($mapnum === '14') {
-    $mapnum = 'The Foundationy';
-} else if ($mapnum === '15') {
-    $mapnum = 'Brawlers Burrow';
-} else if ($mapnum === '16') {
-    $mapnum = 'Trench Run';
-} else if ($mapnum === '17') {
-    $mapnum = 'Corporate Wasteland';
-} else if ($mapnum === '18') {
-    $mapnum = 'Sewage Treatmenty';
-} else if ($mapnum === '19') {
-    $mapnum = 'Storm Drain';
-} else if ($mapnum === '20') {
-    $mapnum = '{Ballistick} Stick Federation Hq';
-} else if ($mapnum === '21') {
-    $mapnum = '{Ballistick} Transgalactic Comstation';
-} else if ($mapnum === '22') {
-    $mapnum = '{Ballistick} Space Elevator Control';
-} else if ($mapnum === '23') {
-    $mapnum = '{Ballistick} Automated Discovery Pod';
-} else if ($mapnum === '24') {
-    $mapnum = '{Ballistick} The SFVengeance';
-} else if ($mapnum === '25') {
-    $mapnum = '{Ballistick} Gemini Control Station';
-} else if ($mapnum === '26') {
-    $mapnum = '{Ballistick} Outpost';
-} else if ($mapnum === '27') {
-    $mapnum = '{Ballistick} Space Mountain';
-} else if ($mapnum === '28') {
-    $mapnum = '{Ballistick} Barge';
-} else if ($mapnum === '29') {
-    $mapnum = '{Ballistick} Cliffside';
-} else if ($mapnum === '30') {
-    $mapnum = '{Ballistick} Orbit';
+if (array_key_exists($mapnum, $mapsArrayy)) {
+    $mapnum = $mapsArray[$mapnum]
 } else {
     $mapnum = 'Custom Map';
-} 
+}
+    
 $sql = "INSERT INTO scores (username, kills, deaths, map, date, version)
 VALUES ('$name', '$kills', '$deaths', '$mapnum', '$date', '$hac_version')";
 
