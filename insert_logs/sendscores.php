@@ -52,7 +52,7 @@ $mapnum = $_POST['AqWZ3n0'];
 $hac_version = $_POST['TqGedOz'];
 $date = date('Y-m-d G:i:s', time());
 
-if (array_key_exists($mapnum, $mapsArrayy)) {
+if (array_key_exists($mapnum, $mapsArray)) {
     $mapnum = $mapsArray[$mapnum]
 } else {
     $mapnum = 'Custom Map';
